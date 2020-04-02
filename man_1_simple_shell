@@ -1,0 +1,28 @@
+.Th man 1 "21 December 2016" "0.0" "_sh man page"
+
+.Sh NAME
+.B _sh
+- Holberton Shell
+.Sh SYNOPSIS
+.B <command> [options]
+.Sh DESCRIPTION
+.B _sh
+is a simple shell like command interpreter. It executes commands read from the standard input. _sh is not fully featured.
+.Sh BUILTIN COMMANDS
+.B cd
+- changes the working directory.
+
+.B env
+- print the environment
+
+.B exit
+- exit the shell gracefully.
+
+.B setenv
+- set an environmental variable.
+.Sh BUGS
+Currently this project is in progress. If there is any bugs, you can contact <yorsibouabid@gmail.com>
+.Sh AUTHORS
+Yosri Bouabid
+
+Achref Boularess
