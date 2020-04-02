@@ -13,7 +13,7 @@ is a simple shell like command interpreter. It executes commands read from the s
 .B env
 - print the environment
 .B exit
-- exit the shell gracefully.
+- exit the shell.
 .B setenv
 - set an environmental variable.
 .SH BUGS
