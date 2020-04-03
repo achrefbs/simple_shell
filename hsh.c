@@ -19,7 +19,7 @@ int main(void)
     }
 
     _putchar('$');
-    size = _getline(&buffer,&bufsize);
+    size = _getline(buffer,O_RDONLY);
 
 
     
