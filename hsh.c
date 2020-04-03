@@ -1,12 +1,12 @@
 #include "simple_shell.h"
 /**
-*
-*
+*main - main function
+*Return: Always 0
 **/
 int main(void)
 {
     char *buffer;
-    size_t bufsize = 32;
+    size_t bufsize = 256;
     size_t size;
 
     (void)size;
@@ -19,10 +19,11 @@ int main(void)
     }
 
     _putchar('$');
-    size = getline(&buffer,&bufsize,stdin);
+    size = _getline(&buffer,&bufsize);
+
 
     
     
-    
+    free(buffer);
     return(0);
 }

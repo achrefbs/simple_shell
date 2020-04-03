@@ -1,11 +1,10 @@
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-char *_strchr(char *s, char c);
-int _strlen(char *s);
-char *_strcpy(char *dest, char *src);
-
+#include "simple_shell.h"
+/**
+*_getline - get the commend
+*@lineptr: the commend
+*@fd: the len
+*Return: the len of the char
+*/
 int _getline(char *line,int fd)
 {
 	char buff[256];
