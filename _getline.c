@@ -6,14 +6,14 @@ char *_strchr(char *s, char c);
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
 
-int _getline(char ** lineptr,int fd)
+int _getline(char *line,int fd)
 {
-	static char buff[256];
+	char buff[256];
 	int rd;
 	char *ptr;
 	unsigned int len;
 
-	if (lineptr == NULL || fd == -1)
+	if (line == NULL || fd == -1)
 	{
 		return (-1);
 	}
@@ -31,7 +31,7 @@ int _getline(char ** lineptr,int fd)
 
    len = _strlen(buff);
 
-   _strcpy(*lineptr,buff); 
+   _strcpy(line,buff); 
    return(len);
 	
 }	

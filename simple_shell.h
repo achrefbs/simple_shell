@@ -3,7 +3,7 @@
 
 /*prototypes*/
 
-int _getline(char ** lineptr,int fd);
+int _getline(char *lineptr,int fd);
 
 /*structs*/
 
