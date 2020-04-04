@@ -5,25 +5,46 @@
 **/
 int main(void)
 {
-    char *buffer;
-    size_t bufsize = 256;
-    size_t size;
+	pid_t pid;
+	int err, i = 0;
+    char str[80], *str2[50], *token;
 
-    (void)size;
-
-    buffer = malloc(sizeof(char) * bufsize);
-    if( buffer == NULL)
+    
+    token = strtok(str, " ");
+    while(token != NULL)
     {
-        free(buffer);
-        exit(1);
+    /*printf("%s\n", token );*/
+    _strcpy(str2[i], token);
+    i++;
+    token = strtok(NULL, " ");
+    }
+    putchar('$');
+    
+
+    while(_getline(str,STDIN_FILENO))
+    {
+        pid = fork();
+        if (pid == -1)/*if the fork didnt work*/
+		{
+			perror("Error:");
+			return (1);
+		}
+		if (pid == 0)/*this is the child*/
+		{
+            
+            err = execv(str2[0],str2);
+            if (err == -1)
+            {
+                perror("Error:");
+                return (1);
+            }
+        }
+        else/*this is the parent*/
+		{   
+			wait(NULL);
+            
+		}
     }
 
-    _putchar('$');
-    size = _getline(buffer,O_RDONLY);
-
-
-    
-    
-    free(buffer);
     return(0);
 }
