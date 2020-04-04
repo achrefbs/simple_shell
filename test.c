@@ -8,12 +8,15 @@
 
 int main()
 {
-	char *test;
+	char *test, *token;
 	int n = 256, c, fd;
-	fd = open("AUTHORS",O_RDONLY);
 	test = malloc(sizeof(char) * n);
-	c = _getline(test,fd);
-	printf("string is \"%s\"\nchars read : %d\n", test, c);	  
+	c = _getline(test,STDIN_FILENO);
+	printf("string is \"%s\"\nchars read : %d\n", test, c);
+	token = _strtok(test, ' ');
+	printf("this is a token : %s\n",token);
+	token = _strtok(NULL, ' ');
+	printf("this is a token 2 : %s\n",token);
 	free(test);
 	return 0;
 }
