@@ -1,25 +1,31 @@
+#include <stdio.h>
 #include "simple_shell.h"
-/**
-*
-*
-**/
-char* _strtok(char *buffer)
-{/*
-    int i, j;
-    char *c;
+#include<string.h>
+/** in progress **/
+char *_strtok(char *str, const char delim)
+{
+  static char *rest;
+  char buff[256], *ptr;
+  unsigned int len, lenptr;
 
-    for (i = 0; buffer[i] != '\0'; i++)
-    for (j = 0;; j++)
-    {
-        if (buffer[i] == "")
-        {
+  _strcpy(buff, str);
+  if(str == NULL)
+  {
+    if(rest != NULL)
+    _strcpy(str, rest);
+    else
+    return (NULL);
+  }
+  if(delim == '\0')
+  return(NULL);
 
-        }
-        else
-        {
-            c[j] = buffer[i];
-        }
-    }
+  len = _strlen(str);
+  ptr = _strchr(str,delim);
+  lenptr = _strlen(ptr);
+  rest = substring(str, len - lenptr + 2, len);
+  if (ptr)
+  *ptr = '\0';
+  len = _strlen(str);
+  return str;
 
-    return ()*/
 }
