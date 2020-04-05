@@ -1,4 +1,6 @@
 #include "simple_shell.h"
+#include "leak_detector_c.h"
+
 
 /**
  * _strtok : breaks string str into a series of tokens

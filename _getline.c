@@ -1,4 +1,6 @@
 #include "simple_shell.h"
+#include "leak_detector_c.h"
+
 /**
 *_getline - get the commend
 *@lineptr: the commend

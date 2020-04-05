@@ -1,4 +1,6 @@
 #include "simple_shell.h"
+#include "leak_detector_c.h"
+
 /**
  **_strchr - a function that locates a character in a string.
  *@s : pointer
