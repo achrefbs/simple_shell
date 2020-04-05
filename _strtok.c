@@ -14,7 +14,9 @@ char *_strtok(char *str, const char delim)
 
 	if(delim == '\0')
 	return(NULL);
-
+  /** return NULL when there is no more tokens **/
+  if (str == NULL && rest == NULL)
+  return (NULL);
 	/** check if string is NULL then buffer will be the rest of the last called fucntion
 		else buffer would be the input string**/
 	if (str == NULL)
@@ -30,6 +32,7 @@ char *_strtok(char *str, const char delim)
 		/** return the last token **/
 		if (ptr == NULL)
 		{
+      rest = NULL;
 			return(buff);
 		}
 
