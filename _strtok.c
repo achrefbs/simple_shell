@@ -1,7 +1,11 @@
-#include <stdio.h>
 #include "simple_shell.h"
-#include<string.h>
-/** in progress **/
+
+/**
+ * _strtok : breaks string str into a series of tokens
+ * @str : string
+ * @delim : char
+ * Return: a pointer to the first token found in the string
+ */
 char *_strtok(char *str, const char delim)
 {
 	static char *rest,  buff[256];
@@ -40,6 +44,9 @@ char *_strtok(char *str, const char delim)
 
 	return (buff);
 }
+
+/********************************************/
+
 /**
  * _substring - find substring of a string 
  * @position : the start of the substring
