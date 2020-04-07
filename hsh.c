@@ -5,21 +5,14 @@
 **/
 int main(void)
 {
-    char **str2 = NULL;
+	char **str2 = NULL;
+	signal(SIGINT,SIG_IGN); /* disable ctrl-C */
 
-    str2 = malloc(sizeof(char *) * 100);
-    if (str2 == NULL)
-    return (0);
+	while(1)
+	{
+		str2 = handle_input();
+		execcmd(str2[0], str2);
+	}
 
-    
-    while(1)
-    {
-        putchar('$');
-
-        str2 = handle_input();
-
-        execcmd(str2[0], str2);
-    }
-    
-    return (EXIT_SUCCESS);
+	return (EXIT_SUCCESS);
 }

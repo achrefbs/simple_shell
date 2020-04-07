@@ -7,6 +7,8 @@ char **handle_input()
 
 	line = malloc(sizeof(char) * 256);
 	str = malloc(sizeof(char *) * s);
+	_putchar('$');
+	_putchar(' ');
 	_getline(line,STDIN_FILENO);
 
 	token = _strtok(line, sep);

@@ -24,6 +24,7 @@ char *_strtok(char *str, const char delim);
 char *_substring(char *string, int position, int length);
 void execcmd(char *cmd, char **array);
 char **handle_input();
+int _putchar(char c);
 
 /*structs*/
 
