@@ -5,46 +5,32 @@
 **/
 int main(void)
 {
-	pid_t pid;
-	int err, i = 0;
-    char str[80], *str2[50], *token;
+    int i = 0;
+    char *sep = " \t\r\n\a", *token = NULL, **str2 = NULL;
+    char *buffer;
+    size_t bufsize = 20;
+
+    buffer = malloc(sizeof(char) * 20);
+    str2 = malloc(sizeof(char *) * 100);
+    if (str2 == NULL)
+    return (0);
 
     
-    token = strtok(str, " ");
-    while(token != NULL)
+    while(1)
     {
-    /*printf("%s\n", token );*/
-    _strcpy(str2[i], token);
-    i++;
-    token = strtok(NULL, " ");
-    }
-    putchar('$');
-    
-
-    while(_getline(str,STDIN_FILENO))
-    {
-        pid = fork();
-        if (pid == -1)/*if the fork didnt work*/
-		{
-			perror("Error:");
-			return (1);
-		}
-		if (pid == 0)/*this is the child*/
-		{
-            
-            err = execv(str2[0],str2);
-            if (err == -1)
-            {
-                perror("Error:");
-                return (1);
-            }
+        putchar('$');
+        getline(&buffer, &bufsize, stdin);
+        token = strtok(buffer, sep);
+        while(token != NULL)
+        {
+        str2[i] = token;
+        i++;
+        token = strtok(NULL, sep);
         }
-        else/*this is the parent*/
-		{   
-			wait(NULL);
-            
-		}
-    }
+        str2[i] = NULL;
 
-    return(0);
+        execcmd(str2[0], str2);
+    }
+    
+    return (EXIT_SUCCESS);
 }

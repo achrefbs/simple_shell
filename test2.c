@@ -1,3 +1,4 @@
+#include "simple_shell.h"
 #include <sys/types.h>
 #include <unistd.h>
 #include <sys/wait.h>
@@ -7,21 +8,23 @@
 #include <stdio.h>
 #include <sys/stat.h>
 #include <string.h>
-char *_which(char *filename);
+
 int main(int ac, char **av, char **env)
 {
     //char *args[] = {"/bin/ls", "-lRa", "/home/yurei/shell/simple_shell", NULL};
     //struct stat st;
 
 
-    pid_t pid;
-    int stats, i = 0;
+    
+    int i = 0;
     char *sep = " \t\r\n\a", *token = NULL, **str2 = NULL;
     char *buffer;
     size_t bufsize = 20;
     buffer = malloc(bufsize * sizeof(char));
 
-    char *cmd;
+    (void)ac;
+    (void)av;
+    (void)env;
 
     str2 = malloc(sizeof(char *) * 100);
     if (str2 == NULL)
@@ -38,35 +41,22 @@ int main(int ac, char **av, char **env)
         token = strtok(buffer, sep);
         while(token != NULL)
         {
-        printf("%s\n", token );
+        //printf("%s\n", token );
         str2[i] = token;
         i++;
         token = strtok(NULL, sep);
         }
         str2[i] = NULL;
 
-        cmd = _which(str2[0]);
-
-        pid = fork();
-        if (pid < 0)
-        {
-            break;
-        }
-        else if (pid == 0)
-        {
-            execve(cmd, str2, env);
-        }
-        else
-        {
-            wait(&stats);
-        }
+        execcmd(str2[0], str2);
     }
     free(str2);
     free(buffer);
     return (EXIT_SUCCESS);
 }
-
+/*
 char* path_finder(char *cmd)
 {
     
-}
+}*/
+
