@@ -168,7 +168,7 @@ void remove_mem_info (void * mem_ref)
  */
 void report_mem_leak(void)
 {
-	unsigned short index;
+	/*unsigned short index;*/
 	MEM_LEAK * leak_info;
 
 	FILE * fp_write = fopen ("leak", "wt");
@@ -183,7 +183,7 @@ void report_mem_leak(void)
 		
 		for(leak_info = ptr_start; leak_info != NULL; leak_info = leak_info->next)
 		{
-			sprintf(info, "address : %d\n", leak_info->mem_info.address);
+			/*sprintf(info, "address : %d\n", leak_info->mem_info.address);*/
 			fwrite(info, (strlen(info) + 1) , 1, fp_write);
 			sprintf(info, "size    : %d bytes\n", leak_info->mem_info.size);			
 			fwrite(info, (strlen(info) + 1) , 1, fp_write);
