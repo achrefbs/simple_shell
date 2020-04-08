@@ -1,19 +1,22 @@
 #include "simple_shell.h"
+char *clean_input(char *line,int len);
 /**
 *handle_input - treat the input
 *Return: The array treated
 **/
 char **handle_input()
 {
-	char *line, *token, **str;
-	int i = 0, s = 10, tlen;
+	char *line,*token, **str,*buffer;
+	int i = 0, s = 10, tlen, ilen;
 	const char sep = ' ';
 
-	line = malloc(sizeof(char) * 256);
-	str = malloc(sizeof(char *) * s);
+	buffer = malloc(sizeof(char) * 256);
 	_putchar('$');
 	_putchar(' ');
-	_getline(line, STDIN_FILENO);
+	ilen = _getline(buffer,STDIN_FILENO);
+	line = clean_input(buffer, ilen);
+	free(buffer);
+	str = malloc(sizeof(char *) * s);
 
 	token = _strtok(line, sep);
 	tlen = _strlen(token);
@@ -28,5 +31,20 @@ char **handle_input()
 	}
 	str[i] = NULL;
 	free(line);
-	return (str);
+	return(str);
+}
+char *clean_input(char *line,int len)
+{
+	int s,i,e = 0,blen;
+	char *buffer ,*str ;
+	buffer = malloc(sizeof(char) * len + 1);
+	_strcpy(buffer,line);
+	for (s = 0;buffer[s] == ' '; s++);
+	for (i = len - 1; buffer[i] == ' '; i--)
+		e++;
+	buffer[len - e] = '\0';
+	blen = _strlen(buffer);
+	str = _substring(buffer,s + 1,blen);
+	free(buffer);
+	return(str);
 }

@@ -13,7 +13,7 @@ int main(void)
 	{
 	str2 = handle_input();
 	execcmd(str2[0], str2);
-}
+	}
 
 return (EXIT_SUCCESS);
 }
