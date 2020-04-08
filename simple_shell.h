@@ -16,7 +16,7 @@
 
 /*prototypes*/
 
-int _getline(char *lineptr,int fd);
+int _getline(char *lineptr, int fd);
 char *_strchr(char *s, char c);
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);

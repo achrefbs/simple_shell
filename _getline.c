@@ -3,11 +3,11 @@
 
 /**
 *_getline - get the commend
-*@lineptr: the commend
+*@line: the commend
 *@fd: the len
 *Return: the len of the char
 */
-int _getline(char *line,int fd)
+int _getline(char *line, int fd)
 {
 	char buff[256];
 	int rd;
@@ -18,21 +18,20 @@ int _getline(char *line,int fd)
 	{
 		return (-1);
 	}
-	
-	rd = read(fd,buff,256);
+
+	rd = read(fd, buff, 256);
 	if (rd == -1)
 	{
-		return(-1);
+		return (-1);
 	}
 
 
-	ptr = _strchr(buff,'\n');   
-   	if (ptr)
-      *ptr = '\0';
+	ptr = _strchr(buff, '\n');
+	if (ptr)
+		*ptr = '\0';
 
-   len = _strlen(buff);
+	len = _strlen(buff);
 
-   _strcpy(line,buff); 
-   return(len);
-	
-}	
+	_strcpy(line, buff);
+	return (len);
+}

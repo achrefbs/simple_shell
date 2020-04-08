@@ -1,7 +1,11 @@
 #include "simple_shell.h"
+/**
+*handle_input - treat the input
+*Return: The array treated
+**/
 char **handle_input()
 {
-	char *line,*token, **str;
+	char *line, *token, **str;
 	int i = 0, s = 10, tlen;
 	const char sep = ' ';
 
@@ -9,7 +13,7 @@ char **handle_input()
 	str = malloc(sizeof(char *) * s);
 	_putchar('$');
 	_putchar(' ');
-	_getline(line,STDIN_FILENO);
+	_getline(line, STDIN_FILENO);
 
 	token = _strtok(line, sep);
 	tlen = _strlen(token);
@@ -24,6 +28,5 @@ char **handle_input()
 	}
 	str[i] = NULL;
 	free(line);
-	return(str);
-
+	return (str);
 }
