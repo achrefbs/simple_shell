@@ -25,6 +25,7 @@ char *_substring(char *string, int position, int length);
 void execcmd(char *cmd, char **array);
 char **handle_input();
 int _putchar(char c);
+char *cmd_finder(char *cmd);
 
 /*structs*/
 
