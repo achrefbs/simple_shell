@@ -2,7 +2,7 @@
 /**
 *cmd_finder - cherche for the command location
 *@cmd: the command to treat
-*@Return: The absolute path of the command
+*Return: The absolute path of the command
 **/
 char *cmd_finder(char *cmd)
 {
@@ -42,5 +42,5 @@ char *cmd_finder(char *cmd)
 		i++;
 	}
 	free(full);
-	return ("-1");
+	return (cmd);
 }

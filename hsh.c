@@ -8,7 +8,7 @@ int main(void)
 	char **str = NULL, *cmd;
 
 	cmd = malloc(sizeof(char) * 20);
-	//signal(SIGINT, SIG_IGN); /* disable ctrl-C */
+	/*signal(SIGINT, SIG_IGN);  disable ctrl-C */
 
 	while (1)
 	{
