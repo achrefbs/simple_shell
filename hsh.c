@@ -7,7 +7,7 @@ int main(void)
 {
 	char **str = NULL, *cmd;
 
-	cmd = malloc(sizeof(char) * 20);
+	cmd = malloc(sizeof(char) * 200);
 	/*signal(SIGINT, SIG_IGN);  disable ctrl-C */
 
 	while (1)
@@ -16,6 +16,7 @@ int main(void)
 	cmd = cmd_finder(str[0]);
 	execcmd(cmd, str);
 	}
+	free(str);
 	free(cmd);
 	return (EXIT_SUCCESS);
 }
