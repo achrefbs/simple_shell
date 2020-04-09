@@ -5,18 +5,17 @@
 **/
 int main(void)
 {
-	char **str = NULL, *cmd;
+	char **str, *cmd;
 
-	cmd = malloc(sizeof(char) * 200);
 	/*signal(SIGINT, SIG_IGN);  disable ctrl-C */
 
 	while (1)
 	{
 	str = handle_input();
 	cmd = cmd_finder(str[0]);
-	execcmd(cmd, str);
-	}
+	execcmd(cmd, str);	
 	free(str);
 	free(cmd);
+	}
 	return (EXIT_SUCCESS);
 }

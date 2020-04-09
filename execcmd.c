@@ -17,7 +17,8 @@ void execcmd(char *cmd, char **array)
 	}
 	else if (pid == 0)
 	{
-	execve(cmd, array, NULL);
+	if (execve(cmd, array, NULL) != 0)
+	printf("Command Not Found!");
 	}
 	else
 	{

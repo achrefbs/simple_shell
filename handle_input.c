@@ -10,26 +10,27 @@ char **handle_input()
 	int i = 0, s = 10, tlen, ilen;
 	const char sep = ' ';
 
-	buffer = malloc(sizeof(char) * 256);
+	buffer = (char *)malloc(sizeof(char) * 256);
 	_putchar('$');
 	_putchar(' ');
 	ilen = _getline(buffer, STDIN_FILENO);
 	line = clean_input(buffer, ilen);
 	free(buffer);
-	str = malloc(sizeof(char *) * s);
+	str = (char **)malloc(sizeof(char *) * s);
 
 	token = _strtok(line, sep);
 	tlen = _strlen(token);
 
 	while (token != NULL)
 	{
-		str[i] = malloc(sizeof(char) * tlen + 1);
+		str[i] = (char *)malloc(sizeof(char) * tlen + 1);
 		_strcpy(str[i], token);
 		token = _strtok(NULL, sep);
 		tlen = _strlen(token);
 		i++;
 	}
 	str[i] = NULL;
+	free(line);
 	free(line);
 	return (str);
 }
@@ -44,7 +45,7 @@ char *clean_input(char *line, int len)
 	int s, i, e = 0, blen;
 	char *buffer, *str;
 
-	buffer = malloc(sizeof(char) * len + 1);
+	buffer = (char *)malloc(sizeof(char) * len + 1);
 	_strcpy(buffer, line);
 	for (s = 0; buffer[s] == ' '; s++)
 	;

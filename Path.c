@@ -7,13 +7,15 @@
 char *cmd_finder(char *cmd)
 {
 	struct stat st;
-	char *new_cmd =NULL, *token = NULL, *path = NULL, **full = NULL;
-	int i, check;
+	char *new_cmd = NULL, *token = NULL, *path = NULL, **full = NULL;
+	int i = 0, check;
 
 	full = (char **)malloc(41);
 	if (full == NULL)
-	return ("-1");
-
+	{
+		free(new_cmd);
+		return (NULL);
+	}
 	path = getenv("PATH");
 	check = stat(cmd, &st);
 	if (check == 0)
@@ -21,7 +23,6 @@ char *cmd_finder(char *cmd)
 		free(full);
 		return (cmd);
 	}
-	i = 0;
 	token = strtok(path, ":");
 	while (token)
 	{
@@ -32,7 +33,7 @@ char *cmd_finder(char *cmd)
 	full[i] = NULL;
 
 	i = 0;
-	while (full)
+	while (full[i])
 	{
 		new_cmd = strdup(full[i]);
 		strcat(new_cmd, "/");
@@ -40,14 +41,15 @@ char *cmd_finder(char *cmd)
 
 		check = stat(new_cmd, &st);
 		if (check == 0)
+		{
+			free(full);
 			return (new_cmd);
+		}
 		free(new_cmd);
 		free(full);
 		i++;
 	}
-	free(new_cmd);
-	free(full);
-	return (cmd);
+	return (new_cmd);
 }
 /*
 int main(void)
