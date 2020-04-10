@@ -14,7 +14,7 @@ char *cmd_finder(char *cmd)
 		return (cmd);
 	else
 	{
-		full = (char **)malloc(2000);
+		full = (char **)malloc(20);
 		if (full == NULL)
 			return (NULL);
 		path = getenv("PATH");
