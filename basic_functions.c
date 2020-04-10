@@ -68,3 +68,50 @@ int _putchar(char c)
 {
 	return (write(1, &c, 1));
 }
+/**
+*_strdup - returns a pointer to newly allocated space in memory
+*@str: the string source
+*Return: the string destination
+*/
+char *_strdup(char *str)
+{
+	int i = 0;
+	char *ing;
+	char *temp;
+
+	if (str == NULL)
+		return (NULL);
+	while (str[i])
+		i++;
+	ing = malloc(i + 1);
+	temp = ing;
+	if (ing == NULL)
+		return (NULL);
+	while (*str)
+		*temp++ = *str++;
+	*temp = '\0';
+	return (ing);
+	free(ing);
+}
+
+
+/**
+*_strcat - concatinates two strings
+*@dest: destination
+*@src: source
+*Return: the string d + s
+*/
+char *_strcat(char *dest, char *src)
+{
+	int i = 0, length = 0;
+
+	while (dest[length] != '\0')
+		length++;
+	while (src[i] != '\0')
+	{
+		dest[length] = src[i];
+		i++;
+		length++;
+	}
+	return (dest);
+}

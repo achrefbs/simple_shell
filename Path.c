@@ -7,56 +7,60 @@
 char *cmd_finder(char *cmd)
 {
 	struct stat st;
-	char *new_cmd = NULL, *token = NULL, *path = NULL, **full = NULL;
-	int i = 0, check;
+	char *new_cmd = NULL, *token = NULL, *path = NULL, *_path = NULL, **full = NULL;
+	int i = 0, x = 0, check;
 
-	full = (char **)malloc(41);
-	if (full == NULL)
-	{
-		free(new_cmd);
-		return (NULL);
-	}
-	path = getenv("PATH");
-	check = stat(cmd, &st);
-	if (check == 0)
-	{
-		free(full);
+	if (stat(cmd, &st) == 0)
 		return (cmd);
-	}
-	token = strtok(path, ":");
-	while (token)
+	else
 	{
-		full[i] = token;
-		token = strtok(NULL, ":");
-		i++;
-	}
-	full[i] = NULL;
-
-	i = 0;
-	while (full[i])
-	{
-		new_cmd = strdup(full[i]);
-		strcat(new_cmd, "/");
-		strcat(new_cmd, cmd);
-
-		check = stat(new_cmd, &st);
-		if (check == 0)
+		full = (char **)malloc(2000);
+		if (full == NULL)
+			return (NULL);
+		path = getenv("PATH");
+		_path = strdup(path);
+		/*printf("paths = %s\n", _path);*/
+		token = strtok(_path, ":");
+		i = 0;
+		while (token)
 		{
-			free(full);
-			return (new_cmd);
+			/*printf("tokens = %s\n", token);*/
+			full[i] = token;
+			token = strtok(NULL, ":");
+			i++;
 		}
-		free(new_cmd);
-		free(full);
-		i++;
+		full[i] = NULL;
+
+		x = 0;
+		while (full[x])
+		{
+			new_cmd = strdup(full[x]);
+			strcat(new_cmd, "/");
+			strcat(new_cmd, cmd);
+			/*printf("token[%d] = %s\n", x,new_cmd);*/
+			check = stat(new_cmd, &st);
+			if (check == 0)
+			{
+				free(full);
+				return (new_cmd);
+			}
+			free(new_cmd);
+			x++;
+		}
 	}
-	return (new_cmd);
+	free(full);
+	return (NULL);
 }
 /*
 int main(void)
 {
 	char *c = "ls", *r;
-	r = cmd_finder(c);
-	printf("%s", r);
-	free(r);
+	while(1)
+	{
+		r = cmd_finder(c);
+		printf("cmd = %s\n", r);
+		free(r);
+		sleep(3);
+	}
 	return (0);
 }*/

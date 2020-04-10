@@ -31,7 +31,6 @@ char **handle_input()
 	}
 	str[i] = NULL;
 	free(line);
-	free(line);
 	return (str);
 }
 /**
