@@ -5,7 +5,7 @@
 **/
 int main(void)
 {
-	char **str, *cmd;
+	char **str = NULL, *cmd = NULL;
 
 	/*signal(SIGINT, SIG_IGN);  disable ctrl-C */
 

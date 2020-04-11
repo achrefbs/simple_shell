@@ -35,3 +35,12 @@ int _getline(char *line, int fd)
 	_strcpy(line, buff);
 	return (len);
 }
+/*
+int main(void)
+{
+	int len;
+	char *buffer = NULL;
+	len = _getline(buffer, STDIN_FILENO);
+	printf("buffer = %s with length = %d\n", buffer, len);
+	return (0);
+}*/

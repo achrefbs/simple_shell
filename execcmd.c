@@ -25,3 +25,10 @@ void execcmd(char *cmd, char **array)
 	wait(&status);
 	}
 }
+/*
+int main(void)
+{
+	char *c[] = {"/bin/ls", "-lRa", "/home/yurei/shell/simple_shell", NULL};
+	execcmd(c[0], c);
+	return (0);
+}*/

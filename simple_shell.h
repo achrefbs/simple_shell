@@ -21,6 +21,8 @@ char *_strchr(char *s, char c);
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
 char *_strtok(char *str, const char delim);
+char *_strcat(char *dest, char *src);
+char *_strdup(char *str);
 char *_substring(char *string, int position, int length);
 void execcmd(char *cmd, char **array);
 char **handle_input();
