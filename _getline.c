@@ -1,46 +1,29 @@
-#include "simple_shell.h"
-#include "leak_detector_c.h"
-
-/**
-*_getline - get the commend
-*@line: the commend
-*@fd: the len
-*Return: the len of the char
-*/
-int _getline(char *line, int fd)
+#include "shell.h"
+char *_getline()
 {
-	char buff[256];
-	int rd;
-	char *ptr;
-	unsigned int len;
-
-	if (line == NULL || fd == -1)
-	{
-		return (-1);
-	}
-
-	rd = read(fd, buff, 256);
-	if (rd == -1)
-	{
-		return (-1);
-	}
-
-
-	ptr = _strchr(buff, '\n');
-	if (ptr)
-		*ptr = '\0';
-
-	len = _strlen(buff);
-
-	_strcpy(line, buff);
-	return (len);
+  int i, buffsize = 1024;
+  char c = 0;
+  char *buff = malloc(sizeof(char) * buffsize);
+  if (buff == NULL)
+  {
+    exit(EXIT_FAILURE);
+  }
+  for (i = 0; c != EOF && c != '\n';i++)
+  {
+    fflush(stdin);
+    read(STDIN_FILENO,&c,1);
+    buff[i] = c;
+    if (i >= buffsize)
+    {
+      
+      buff = _realloc(buff, buffsize,buffsize + 1024);
+      buffsize += 1024;
+      if (buff == NULL)
+        {
+          exit(EXIT_FAILURE);
+        }
+    }
+  }
+  buff[i - 1] = '\0';
+  return(buff);
 }
-/*
-int main(void)
-{
-	int len;
-	char *buffer = NULL;
-	len = _getline(buffer, STDIN_FILENO);
-	printf("buffer = %s with length = %d\n", buffer, len);
-	return (0);
-}*/
