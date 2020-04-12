@@ -30,7 +30,7 @@ char *path(char *cmd)
 			_strcpy(new_cmd, full[x]);
 			strcat(new_cmd, "/");
 			strcat(new_cmd, cmd);
-			printf("token[%d] = %s\n", x, new_cmd);
+			/*printf("token[%d] = %s\n", x, new_cmd);*/
 			check = stat(new_cmd, &st);
 			if (check == 0)
 			{
@@ -51,7 +51,7 @@ char *path(char *cmd)
 	free(full);
 	return (NULL);
 }
-
+/*
 int main(void)
 {
 	char *c = "ld", *r;
@@ -63,4 +63,4 @@ int main(void)
 		//sleep(2);
 	}
 	return (0);
-}
+}*/
