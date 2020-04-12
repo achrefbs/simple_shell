@@ -24,6 +24,6 @@ char *_substring(char *string, int position, int length);
 char **split(char *line, char *div);
 int _exec(char *cmd, char **array);
 char *path(char *cmd);
-void p_env(char **en);
+void p_env(void);
 
 #endif
