@@ -3,10 +3,13 @@
 *main - tha main function
 *Return: Always 0
 */
-int main(void) 
+int main(int ac, char **av, char **en) 
 {
 	char *line, *cmd, **str, *div = " \t\r\n";
-	int i;
+	int i, j;
+	(void)ac;
+	(void)av;
+	
 	while(1)
 	{
 		_putchar('$');
@@ -21,6 +24,11 @@ int main(void)
 			free(line);
 			free(str);
 			break;
+		}
+		if ((strcmp(str[0], "env") == 0))
+		{
+			for (j = 0; en[j] != NULL; j++)
+        	printf("\n%s", en[j]);
 		}
 		cmd = path(str[0]);
 		_exec(cmd, str);

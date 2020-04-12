@@ -19,7 +19,6 @@ char *path(char *cmd)
 		len = _strlen(path);
 		_path = malloc(len);
 		_strcpy(_path, path);
-
 		full = split(_path, ":");
 
 		x = 0;
