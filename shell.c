@@ -15,6 +15,7 @@ int main(void)
 		fflush(stdin);
 		line = _getline();
 		str = split(line, div);
+		free(line);
 		if ((strcmp(str[0], "env") == 0))
 			p_env();
 		if ((strcmp(str[0], "exit") == 0))
@@ -33,7 +34,6 @@ int main(void)
 		{
 			free(str[i]);
 		}
-		free(line);
 		free(cmd);
 		free(str);
 	}

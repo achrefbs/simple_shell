@@ -5,7 +5,8 @@ extern char** environ;
 **/
 void p_env(void)
 {
-	for (size_t i = 0; environ[i] != NULL; i++)
+	size_t i;
+	for (i = 0; environ[i] != NULL; i++)
 	{
     	printf("%s\n", environ[i]);
 	}
