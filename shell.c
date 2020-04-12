@@ -5,7 +5,7 @@
 */
 int main(void) 
 {
-	char *line, **str;
+	char *line, *cmd, **str, *div = " \t\r\n";
 	int i;
 	while(1)
 	{
@@ -13,12 +13,18 @@ int main(void)
 		_putchar(' ');
 
 		line = _getline();
-		str = split(line);
+		str = split(line, div);
 		free(line);
-		if ((strcmp(str[0], "exit") == 0))
-			break;
-		_exec(str[0],str);
 
+		if ((strcmp(str[0], "exit") == 0))
+		{
+			free(line);
+			free(str);
+			break;
+		}
+		cmd = path(str[0]);
+		_exec(cmd, str);
+		free(cmd);
 		/**free**/
 		for (i = 0;str[i] != NULL;i++)
 		{

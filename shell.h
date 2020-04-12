@@ -21,7 +21,7 @@ int _strlen(char *s);
 char *_strchr(char *s, char c);
 int _putchar(char c);
 char *_substring(char *string, int position, int length);
-char **split(char *line);
+char **split(char *line, char *div);
 int _exec(char *cmd, char **array);
 char *path(char *cmd);
 

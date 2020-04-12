@@ -4,10 +4,10 @@
 *@buffer: the buffer to divide
 *Return: return a string prepared for the exec
 **/
-char **split(char *line)
+char **split(char *line, char *div)
 {
 	char **buffer;
-	char *token,*div = " \t\r\n";
+	char *token;
 	int i = 0, len;
 
 	buffer = malloc(sizeof(char *) * 256);
