@@ -9,7 +9,11 @@ char *path(char *cmd)
 	struct stat st;
 	char *new_cmd = NULL, *path = NULL, *_path = NULL, **full = NULL;
 	int i, x = 0, check, len, lencmd;
-
+	if (cmd == NULL)
+	{
+		return (NULL);
+	}
+	
 	if (stat(cmd, &st) == 0)
 		return (cmd);
 	else
@@ -39,7 +43,7 @@ char *path(char *cmd)
 				free(full);
 				return (new_cmd);
 			}
-			free(new_cmd);
+			/*free(new_cmd);*/
 			x++;
 		}
 	}

@@ -9,7 +9,11 @@ char **split(char *line, char *div)
 	char **buffer;
 	char *token;
 	int i = 0, len;
-
+	if (line == NULL)
+	{
+		return(NULL);
+	}
+	
 	buffer = malloc(sizeof(char *) * 256);
 	if (buffer == NULL)
 		exit(EXIT_FAILURE);
