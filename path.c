@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
-*cmd_finder - cherche for the command location
+*path - cherche for the command location
 *@cmd: the command to treat
 *Return: The absolute path of the command
 **/
