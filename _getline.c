@@ -6,7 +6,7 @@ char *_getline()
   char *buff = malloc(sizeof(char) * buffsize);
   if (buff == NULL)
   {
-    exit(EXIT_FAILURE);
+    return NULL;
   }
   for (i = 0; c != EOF && c != '\n';i++)
   {
@@ -20,7 +20,7 @@ char *_getline()
       buffsize += 1024;
       if (buff == NULL)
         {
-          exit(EXIT_FAILURE);
+          return NULL;
         }
     }
   }

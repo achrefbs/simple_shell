@@ -27,15 +27,15 @@ int main(void)
 			free(str);
 			exit(EXIT_SUCCESS);
 		}
-		cmd = path(str[0]);
+    cmd = path(str[0]);
 		_exec(cmd, str);
 		/**free**/
 		for (i = 0;str[i] != NULL;i++)
 		{
 			free(str[i]);
 		}
-		free(cmd);
 		free(str);
+    free(cmd);
 	}
 	return(0);
 }

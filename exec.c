@@ -3,21 +3,10 @@ int _exec(char *cmd, char **array)
 {
 		pid_t pid;
 		int status;
-		if (cmd == NULL)
+		if (cmd == NULL || array == NULL)
 		{
 			return -1;
 		}
-		
-		/*if (_strcmp(cmd, "exit") == 0)
-		{
-			for (i = 0;array[i] != NULL;i++)
-			{
-			free(array[i]);
-			}
-			free(array);
-			exit(EXIT_SUCCESS);
-		}*/
-
 		pid = fork();
 		if (pid < 0)
 		{

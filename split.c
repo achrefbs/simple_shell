@@ -16,17 +16,18 @@ char **split(char *line, char *div)
 	
 	buffer = malloc(sizeof(char *) * 256);
 	if (buffer == NULL)
-		exit(EXIT_FAILURE);
+		return NULL;
 	token = strtok(line, div);
 	while (token)
 	{
 		len = strlen(token);
 		buffer[i] = malloc(sizeof(char) * len);
+    if (buffer[i] == NULL)
+      return NULL;
 		strcpy(buffer[i], token);
 		token = strtok(NULL, div);
 		i++;
 	}
 	buffer[i] = NULL;
-
 	return (buffer);
 }
