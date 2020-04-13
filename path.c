@@ -13,8 +13,13 @@ char *path(char *cmd)
 	{
 		return (NULL);
 	}
-  if (stat(cmd, &st) == 0)
-		return (cmd);
+  	if (stat(cmd, &st) == 0)
+		{
+			lencmd = _strlen(cmd);
+			new_cmd = malloc(sizeof(cmd)*lencmd);
+			_strcpy(new_cmd,cmd);
+			return (new_cmd);
+		}
 	path = getenv("PATH");
 
 		len = _strlen(path);

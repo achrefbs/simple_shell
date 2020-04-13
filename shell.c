@@ -27,7 +27,7 @@ int main(void)
 			free(str);
 			exit(EXIT_SUCCESS);
 		}
-    cmd = path(str[0]);
+    	cmd = path(str[0]);
 		_exec(cmd, str);
 		/**free**/
 		for (i = 0;str[i] != NULL;i++)
@@ -35,7 +35,7 @@ int main(void)
 			free(str[i]);
 		}
 		free(str);
-    free(cmd);
+		free(cmd);
 	}
 	return(0);
 }
