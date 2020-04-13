@@ -31,8 +31,8 @@ char *path(char *cmd)
 			lencmd = _strlen(full[x]);
 			new_cmd = malloc(lencmd);
 			_strcpy(new_cmd, full[x]);
-			strcat(new_cmd, "/");
-			strcat(new_cmd, cmd);
+			_strcat(new_cmd, "/");
+			_strcat(new_cmd, cmd);
 			/*printf("token[%d] = %s\n", x, new_cmd);*/
 			check = stat(new_cmd, &st);
 			if (check == 0)
@@ -43,7 +43,7 @@ char *path(char *cmd)
 				free(full);
 				return (new_cmd);
 			}
-			/*free(new_cmd);*/
+			free(new_cmd);
 			x++;
 		}
 	}
