@@ -26,8 +26,8 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	}
 	tmp = malloc(new_size);
 	tmp = _memcpy(tmp, ptr, new_size);
-free(ptr);
-return (tmp);
+	free(ptr);
+	return (tmp);
 }
 /**
 **_memcpy - copies memory area.
@@ -46,4 +46,3 @@ char *_memcpy(char *dest, char *src, unsigned int n)
 	}
 	return (dest);
 }
-

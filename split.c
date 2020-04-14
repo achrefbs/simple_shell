@@ -22,11 +22,11 @@ char **split(char *line, char *div)
 	token = strtok(line, div);
 	while (token)
 	{
-		len = strlen(token);
+		len = _strlen(token);
 		buffer[i] = malloc(sizeof(char) * len);
 		if (buffer[i] == NULL)
 		return (NULL);
-		strcpy(buffer[i], token);
+		_strcpy(buffer[i], token);
 		token = strtok(NULL, div);
 		i++;
 	}

@@ -5,10 +5,10 @@
 */
 int main(void)
 {
-	char *line, *cmd, **str, *div = " \t\r\n";
+	char *line, *cmd = NULL, **str, *div = " \t\r\n";
 	int i, status = 1;
 
-	signal(SIGINT, SIG_IGN);/*disable ctrl-C */
+	/*signal(SIGINT, SIG_IGN);disable ctrl-C */
 	while (status)
 	{
 		_putchar('$');
