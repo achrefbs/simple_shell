@@ -12,6 +12,7 @@
 #include <string.h>
 #include <signal.h>
 
+extern char **environ;
 
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 char *_getline();
@@ -25,6 +26,9 @@ char **split(char *line, char *div);
 int _exec(char *cmd, char **array);
 char *path(char *cmd);
 void p_env(void);
+char *_strcat(char *dest, char *src);
+char *_getenv(char *path);
+
 
 
 #endif

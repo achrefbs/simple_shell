@@ -1,4 +1,5 @@
 #include <stdlib.h>
+char *_memcpy(char *dest, char *src, unsigned int n);
 /**
  **_realloc -  a function that reallocates a memory block using malloc and free
  *@ptr : pointer
@@ -6,7 +7,7 @@
  *@new_size : int
  *Return: pointer
  */
-char *_memcpy(char *dest, char *src, unsigned int n);
+
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
 	char *tmp;
@@ -24,15 +25,15 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		return (ptr);
 	}
 	tmp = malloc(new_size);
-  tmp = _memcpy(tmp, ptr, new_size);
+	tmp = _memcpy(tmp, ptr, new_size);
 free(ptr);
 return (tmp);
 }
 /**
 **_memcpy - copies memory area.
-*@dest : pointer
-*@src : pointer
-*@n : int
+*@dest: pointer
+*@src: pointer
+*@n: int
 *Return: pointer
 */
 char *_memcpy(char *dest, char *src, unsigned int n)
