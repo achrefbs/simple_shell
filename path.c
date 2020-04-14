@@ -10,8 +10,6 @@ char *path(char *cmd)
 	char *new_cmd = NULL, *path = NULL, *_path = NULL, **full = NULL;
 	int i, x = 0, check, len, lencmd;
 
-	if (cmd == NULL)
-		return (NULL);
 	if (stat(cmd, &st) == 0)
 	{
 		lencmd = _strlen(cmd);
