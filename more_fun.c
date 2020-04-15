@@ -10,7 +10,7 @@ void p_env(void)
 	for (i = 0; environ[i] != NULL; i++)
 	{
 		len = _strlen(environ[i]);
-		write(1, environ[i], len);
+		write(1, (const void *) environ[i], len);
 		_putchar('\n');
 	}
 }
