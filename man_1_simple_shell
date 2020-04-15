@@ -10,6 +10,16 @@ is a simple shell like command interpreter. It executes commands read from the s
 .SH BUILTIN COMMANDS
 .B cd
 - changes the working directory.
+.B ls
+- show all the files in the current directory.
+.B pwd
+- print the current working directory.
+.B rm
+- remove a file.
+.B touch
+- creat a file.
+.B _getline
+- save the input as a string.
 .B env
 - print the environment
 .B exit
