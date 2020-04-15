@@ -1,0 +1,23 @@
+.TH man 1 "02/04/2020" "0.0" "hsh man page"
+.SH NAME
+.B hsh
+- Holberton Shell
+.SH SYNOPSIS
+.B <command> [options]
+.SH DESCRIPTION
+.B hsh
+is a simple shell like command interpreter. It executes commands read from the standard input. hsh is not fully featured.
+.SH BUILTIN COMMANDS
+.B cd
+- changes the working directory.
+.B env
+- print the environment
+.B exit
+- exit the shell.
+.B setenv
+- set an environmental variable.
+.SH BUGS
+Currently this project is in progress. If there is any bugs, you can contact <yorsibouabid@gmail.com>
+.SH AUTHORS
+Yosri Bouabid
+Achref Boularess
