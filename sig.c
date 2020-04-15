@@ -1,4 +1,8 @@
 #include "shell.h"
+/**
+*sig - signal handler
+*@signal: input
+*/
 void sig(int signal)
 {
 	if (signal == SIGINT)
@@ -7,5 +11,4 @@ void sig(int signal)
 		_putchar('$');
 		_putchar(' ');
 	}
-	
 }

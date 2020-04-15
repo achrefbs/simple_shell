@@ -25,7 +25,7 @@ char **split(char *line, char *div)
 		free(buffer);
 		return (NULL);
 	}
-	
+
 	while (token)
 	{
 		len = _strlen(token);

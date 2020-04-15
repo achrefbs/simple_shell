@@ -6,6 +6,7 @@ void p_env(void)
 {
 	size_t i;
 	int len;
+
 	for (i = 0; environ[i] != NULL; i++)
 	{
 		len = _strlen(environ[i]);
@@ -33,7 +34,11 @@ char *_strcat(char *dest, char *src)
 	dest[i + j] = '\0';
 	return (dest);
 }
-
+/**
+*int_len - length of a number
+*@n: the number
+*Return: The length
+*/
 int int_len(int n)
 {
 	int len = 0;

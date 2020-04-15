@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
-*cmd_finder - cherche for the command location
+*path - cherche for the command location
 *@cmd: the command to treat
 *Return: The absolute path of the command
 **/
@@ -17,32 +17,29 @@ char *path(char *cmd)
 		_strcpy(new_cmd, cmd);
 		return (new_cmd);
 	}
-	else
+	path = _getenv("PATH");
+	len = _strlen(path);
+	_path = _calloc(len + 1);
+	_strcpy(_path, path);
+	full = split(_path, ":");
+	while (full[x])
 	{
-		path = _getenv("PATH");
-		len = _strlen(path);
-		_path = _calloc(len + 1);
-		_strcpy(_path, path);
-		full = split(_path, ":");
-		while (full[x])
+		l = _strlen(cmd);
+		lencmd = _strlen(full[x]);
+		new_cmd = _calloc(lencmd + l + 3);
+		_strcpy(new_cmd, full[x]);
+		_strcat(new_cmd, "/");
+		_strcat(new_cmd, cmd);
+		if ((stat(new_cmd, &st) == 0) && (access(new_cmd, F_OK | X_OK) == 0))
 		{
-			l = _strlen(cmd);
-			lencmd = _strlen(full[x]);
-			new_cmd = _calloc(lencmd + l + 3);
-			_strcpy(new_cmd, full[x]);
-			_strcat(new_cmd, "/");
-			_strcat(new_cmd, cmd);
-			if ((stat(new_cmd, &st) == 0) && (access(new_cmd, F_OK | X_OK) == 0))
-			{
-				free(_path);
-				for (i = 0; i < len; i++)
-					free(full[i]);
-				free(full);
-				return (new_cmd);
-			}
-			free(new_cmd);
-			x++;
+			free(_path);
+			for (i = 0; i < len; i++)
+				free(full[i]);
+			free(full);
+			return (new_cmd);
 		}
+		free(new_cmd);
+		x++;
 	}
 	for (i = 0; full[i] != NULL; i++)
 		free(full[i]);
