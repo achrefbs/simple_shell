@@ -5,7 +5,7 @@
 */
 int main(void)
 {
-	char *line, *cmd = NULL, **str, *div = " ​\t\r\n\a\v​:";
+	char *line, *cmd = NULL, **str, *div = " ​\t\r\n\a\v​:", *err = "./shell: ";
 	int i, status = 1, count = 0;
 
 	signal(SIGINT, sig);/*disable ctrl-C */
@@ -18,7 +18,11 @@ int main(void)
 		_putchar(' ');
 		}
 		fflush(stdin);
-		line = _getline();	
+		line = _getline();
+		if (!line)
+		{
+			continue;
+		}
 		str = split(line, div);
 		if (str == NULL)
 		continue;
@@ -38,7 +42,7 @@ int main(void)
 		status = _exec(cmd, str);
 		if (status == -1)
 		{
-			perror("./shell");
+			perror(err);
 		}
 		
 		/**free**/

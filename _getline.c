@@ -39,6 +39,11 @@ char *_getline()
 		}
 	}
 	buff[i] = '\0';
+	if (!strtok(buff," ​\t\r\n\a\v​:"))
+	{
+		free(buff);
+		return(NULL);
+	}
 
 	return (buff);
 }

@@ -45,3 +45,37 @@ void *_calloc(unsigned int size)
 	}
 	return (a);
 }
+/*
+char *_itoa(unsigned int n)
+{
+	int len = 0, i = 0;
+	char *s;
+
+	while (n / 10)
+	{
+		s[i] = (n % 10) + '0';
+		n /= 10;
+		i++;
+	}
+	s[i] = (n % 10) + '0';
+	rev_arr(s, len);
+	s[i + 1] = '\0';
+	return (s);
+}*/
+
+/**
+ *reverse_array - reverse
+ *@a : array
+ *@n : integer
+ *Return: 0
+ */
+/*void reverse_array(int *a, int n)
+{
+int i, c;
+for (i = 0; (i < (n - 1) / 2); i++)
+{
+c = a[i];
+a[i] = a[n - 1 - i];
+a[n - 1 - i] = c;
+}
+}*/

@@ -14,6 +14,7 @@
 
 extern char **environ;
 void sig(int signal);
+void reverse_array(int *a, int n);
 void *_calloc(unsigned int size);
 void function();
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
