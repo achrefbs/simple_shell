@@ -8,12 +8,12 @@ char *path(char *cmd)
 {
 	struct stat st;
 	char *new_cmd = NULL, *path = NULL, *_path = NULL, **full = NULL;
-	int i, x = 0, len, lencmd;
+	int i, x = 0, len, lencmd, l;
 
 	if (stat(cmd, &st) == 0)
 	{
 		lencmd = _strlen(cmd);
-		new_cmd = malloc(sizeof(cmd) * lencmd);
+		new_cmd = _calloc(sizeof(char) * lencmd + 1);
 		_strcpy(new_cmd, cmd);
 		return (new_cmd);
 	}
@@ -21,13 +21,14 @@ char *path(char *cmd)
 	{
 		path = _getenv("PATH");
 		len = _strlen(path);
-		_path = malloc(len);
+		_path = _calloc(len + 1);
 		_strcpy(_path, path);
 		full = split(_path, ":");
 		while (full[x])
 		{
+			l = _strlen(cmd);
 			lencmd = _strlen(full[x]);
-			new_cmd = malloc(lencmd);
+			new_cmd = _calloc(lencmd + l + 3);
 			_strcpy(new_cmd, full[x]);
 			_strcat(new_cmd, "/");
 			_strcat(new_cmd, cmd);
