@@ -16,6 +16,7 @@ int _exec(char *cmd, char **array)
 	pid = fork();
 	if (pid < 0)
 	{
+		perror("fail to fork");
 		return (-1);
 	}
 	else if (pid == 0)

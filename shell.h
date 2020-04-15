@@ -29,7 +29,7 @@ char *path(char *cmd);
 void p_env(void);
 char *_strcat(char *dest, char *src);
 char *_getenv(char *path);
-
-
+void error_msg(char *cmd, int i);
+char *itoa(unsigned int n);
 
 #endif

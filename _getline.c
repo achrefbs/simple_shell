@@ -20,7 +20,6 @@ char *_getline()
 		buff[i] = c;
 		if (buff[0] == '\n' || buff[0] == EOF)
 		{
-			free (buff);
 			return (NULL);
 		}
 		if (i >= buffsize)
