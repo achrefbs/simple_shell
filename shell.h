@@ -14,9 +14,10 @@
 
 extern char **environ;
 void sig(int signal);
-void reverse_array(int *a, int n);
+void rev_string(char *s);
 void *_calloc(unsigned int size);
 void function();
+int int_len(int n);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 char *_getline();
 int _strcmp(char *s1, char *s2);
@@ -32,6 +33,5 @@ void p_env(void);
 char *_strcat(char *dest, char *src);
 char *_getenv(char *path);
 void error_msg(char *cmd, int i);
-char *itoa(unsigned int n);
-
+char* _itoa(int num, char* str);
 #endif

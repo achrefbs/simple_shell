@@ -5,8 +5,8 @@
 */
 int main(void)
 {
-	char *line, *cmd = NULL, **str, *div = " ​\t\r\n\a\v​:", *err = "./shell: ";
-	int i, status = 1, count = 0;
+	char *line, *cmd = NULL, **str, *div = " ​\t\r\n\a\v​:", *err = NULL ,*err1;
+	int i, status = 1, count = 0,le;
 
 	signal(SIGINT, sig);/*disable ctrl-C */
 	while (status)
@@ -42,7 +42,15 @@ int main(void)
 		status = _exec(cmd, str);
 		if (status == -1)
 		{
+			le = int_len(count);
+			err1 = _calloc(le + 1);
+			err1 = _itoa(count,err1);
+			err = _calloc(le + 11);
+			_strcat(err,"./shell: ");
+			_strcat(err,err1);
 			perror(err);
+			free(err);
+			free(err1);
 		}
 		
 		/**free**/

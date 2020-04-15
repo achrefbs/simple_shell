@@ -45,37 +45,58 @@ void *_calloc(unsigned int size)
 	}
 	return (a);
 }
-/*
-char *_itoa(unsigned int n)
-{
-	int len = 0, i = 0;
-	char *s;
+char* _itoa(int num, char* str) 
+{ 
+    int i = 0,r; 
+    int isNegative = 0; 
+  
+	if (num == 0) 
+    { 
+        str[i++] = '0'; 
+        str[i] = '\0'; 
+        return str; 
+    } 
 
-	while (n / 10)
-	{
-		s[i] = (n % 10) + '0';
-		n /= 10;
-		i++;
-	}
-	s[i] = (n % 10) + '0';
-	rev_arr(s, len);
-	s[i + 1] = '\0';
-	return (s);
-}*/
-
+    if (num < 0) 
+    { 
+        isNegative = 1; 
+        num = -num; 
+    } 
+  
+    while (num != 0) 
+    { 
+        r = num % 10; 
+        str[i++] = (r > 9)? (r-10) + 'a' : r + '0'; 
+        num = num/10; 
+    } 
+  
+    if (isNegative == 1) 
+        str[i++] = '-'; 
+  
+    str[i] = '\0';
+  
+    rev_string(str); 
+  
+    return str; 
+} 
 /**
- *reverse_array - reverse
- *@a : array
- *@n : integer
+ *rev_string - reverse string
+ *@s : string
  *Return: 0
  */
-/*void reverse_array(int *a, int n)
+void rev_string(char *s)
 {
-int i, c;
-for (i = 0; (i < (n - 1) / 2); i++)
+char h;
+int i, j;
+int c = 0;
+for (i = 0; s[i] != '\0'; i++)
 {
-c = a[i];
-a[i] = a[n - 1 - i];
-a[n - 1 - i] = c;
+c++;
 }
-}*/
+for (j = 0 ; j < c / 2 ; j++)
+{
+h = s[c - j - 1];
+s[c - j - 1] = s[j];
+s[j] = h;
+}
+}

@@ -34,3 +34,16 @@ char *_strcat(char *dest, char *src)
 	dest[i + j] = '\0';
 	return (dest);
 }
+
+int int_len(int n)
+{
+	int len = 0;
+
+	while (n != 0)
+	{
+		len++;
+		n /= 10;
+	}
+	return (len);
+}
+
