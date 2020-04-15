@@ -45,7 +45,7 @@ int main(void)
 				free(str[i]);
 			}
 			free(str);
-			exit(EXIT_SUCCESS);
+			exit(0);
 		}
 		cmd = path(str[0]);
 		status = _exec(cmd, str);
