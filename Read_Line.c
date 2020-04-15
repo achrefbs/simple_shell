@@ -18,7 +18,7 @@ char *_getline()
 		fflush(stdin);
 		read(STDIN_FILENO, &c, 1);
 		buff[i] = c;
-		if (buff[0] == '\n' || buff[0] == EOF)
+		if (buff[0] == '\n' || buff[0] == EOF || buff[0] == '\0')
 		{
 			free (buff);
 			return (NULL);
@@ -34,6 +34,5 @@ char *_getline()
 		}
 	}
 	buff[i] = '\0';
-
 	return (buff);
 }

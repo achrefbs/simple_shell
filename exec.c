@@ -20,16 +20,8 @@ int _exec(char *cmd, char **array)
 	}
 	else if (pid == 0)
 	{
-<<<<<<< HEAD
 		if (execve(cmd, array, NULL) != 0)
 		return (-1);
-=======
-		if (execve(cmd, array, environ) != 0)
-		{
-			perror("fail to execute");
-			return (-1);
-		}
->>>>>>> 5ecdf12e13af41532a6a8c346f040dc18ef4e733
 	}
 	else
 	{

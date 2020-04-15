@@ -18,7 +18,10 @@ char **split(char *line, char *div)
 
 	buffer = malloc(sizeof(char *) * 256);
 	if (buffer == NULL)
+	{
+		free(buffer);
 		return (NULL);
+	}
 	token = strtok(line, div);
 	while (token)
 	{
