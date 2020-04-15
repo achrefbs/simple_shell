@@ -11,7 +11,7 @@ void p_env(void)
 	{
 		len = _strlen(environ[i]);
 		write(1, (const void *) environ[i], len);
-		_putchar('\n');
+		write(STDOUT_FILENO, "\n", 2);
 	}
 }
 
