@@ -17,8 +17,11 @@ char *_getline()
 	{
 		fflush(stdin);
 		read(STDIN_FILENO, &c, 1);
-
 		buff[i] = c;
+		if (buff[0] == '\n')
+		{
+			return (NULL);
+		}
 		if (i >= buffsize)
 		{
 			buff = _realloc(buff, buffsize, buffsize + 1024);
@@ -29,6 +32,7 @@ char *_getline()
 			}
 		}
 	}
-	buff[i - 1] = '\0';
+	buff[i] = '\0';
+
 	return (buff);
 }

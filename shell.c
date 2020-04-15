@@ -5,17 +5,20 @@
 */
 int main(void)
 {
-	char *line, *cmd = NULL, **str, *div = " \t\r\n";
+	char *line, *cmd = NULL, **str, *div = " ​\t\r\n\a\v​:";
 	int i, status = 1;
 
-	/*signal(SIGINT, SIG_IGN);disable ctrl-C */
+	signal(SIGINT, SIG_IGN);/*disable ctrl-C */
 	while (status)
 	{
+
 		_putchar('$');
 		_putchar(' ');
 		fflush(stdin);
-		line = _getline();
+		line = _getline();	
 		str = split(line, div);
+		if (str == NULL)
+		continue;
 		free(line);
 		if ((strcmp(str[0], "env") == 0))
 			p_env();
@@ -37,6 +40,9 @@ int main(void)
 		}
 		free(str);
 		free(cmd);
+		if (!isatty(STDIN_FILENO))
+		exit(0);
+		
 	}
 	return (0);
 }

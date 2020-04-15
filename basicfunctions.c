@@ -62,7 +62,7 @@ return (dest);
 }
 
 /**
- * _strcmp - copies a string
+ * _strcmp - compare two strings
  *@s1 : string
  *@s2 : string
  *Return: 0
