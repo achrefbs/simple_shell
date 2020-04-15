@@ -20,36 +20,22 @@ int main(void)
 		fflush(stdin);
 		line = _getline();
 		if (!line)
-		{
 			continue;
-		}
 		str = split(line, div);
 		free(line);
 		if (str == NULL)
 		continue;
-		
 		if ((_strcmp(str[0], "env") == 0))
 		{
-			for (i = 0; str[i] != NULL; i++)
-			{
-			free(str[i]);
-			}
-			free(str);
+			free_array(str);
 			p_env();
 			continue;
 		}
 		if ((_strcmp(str[0], "exit") == 0))
 		{
 			if (str[1] != NULL)
-			{
 				ex = _atoi(str[1]);
-			}
-			
-			for (i = 0; str[i] != NULL; i++)
-			{
-				free(str[i]);
-			}
-			free(str);
+			free_array(str);
 			exit(ex);
 		}
 		cmd = path(str[0]);
@@ -66,13 +52,7 @@ int main(void)
 			free(err);
 			free(err1);
 		}
-		
-		/**free**/
-		for (i = 0; str[i] != NULL; i++)
-		{
-			free(str[i]);
-		}
-		free(str);
+		free_array(str);
 		free(cmd);
 		if (!isatty(STDIN_FILENO))
 		exit(0);
