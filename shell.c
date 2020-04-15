@@ -30,6 +30,11 @@ int main(void)
 		
 		if ((_strcmp(str[0], "env") == 0))
 		{
+			for (i = 0; str[i] != NULL; i++)
+			{
+			free(str[i]);
+			}
+			free(str);
 			p_env();
 			continue;
 		}

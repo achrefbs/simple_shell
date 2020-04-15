@@ -9,8 +9,8 @@ void p_env(void)
 	for (i = 0; environ[i] != NULL; i++)
 	{
 		len = _strlen(environ[i]);
-		write(1, (const void *) environ[i], len);
-		write(STDOUT_FILENO, "\n", 2);
+		write(1, environ[i], len);
+		write(STDOUT_FILENO, "\n", 1);
 	}
 }
 
