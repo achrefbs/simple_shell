@@ -24,7 +24,7 @@ int main(void)
 		free(line);
 		/*if ((_strcmp(str[0], "env") == 0))
 			p_env();*/
-		/*if ((_strcmp(str[0], "exit") == 0))
+		if ((_strcmp(str[0], "exit") == 0))
 		{
 			for (i = 0; str[i] != NULL; i++)
 			{
@@ -32,7 +32,7 @@ int main(void)
 			}
 			free(str);
 			exit(EXIT_SUCCESS);
-		}*/
+		}
 		/*cmd = path(str[0]);*/
 		status = _exec(str[0], str);
 		if (status == -1)
