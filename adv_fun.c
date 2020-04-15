@@ -25,7 +25,6 @@ char *_getenv(char *name)
 }
 /**
  **_calloc - a function that allocates memory for an array, using malloc.
- *@nmemb : int
  *@size : int
  *Return: pointer to an array
  */
@@ -45,40 +44,43 @@ void *_calloc(unsigned int size)
 	}
 	return (a);
 }
-char* _itoa(int num, char* str) 
-{ 
-    int i = 0,r; 
-    int isNegative = 0; 
-  
-	if (num == 0) 
-    { 
-        str[i++] = '0'; 
-        str[i] = '\0'; 
-        return str; 
-    } 
+/**
+ * _itoa - turns integer to str
+ * @num : int
+ * @str : string
+ * Return: str
+ */
+char *_itoa(int num, char *str)
+{
+	int i = 0, r;
+	int isNegative = 0;
 
-    if (num < 0) 
-    { 
-        isNegative = 1; 
-        num = -num; 
-    } 
-  
-    while (num != 0) 
-    { 
-        r = num % 10; 
-        str[i++] = (r > 9)? (r-10) + 'a' : r + '0'; 
-        num = num/10; 
-    } 
-  
-    if (isNegative == 1) 
-        str[i++] = '-'; 
-  
-    str[i] = '\0';
-  
-    rev_string(str); 
-  
-    return str; 
-} 
+	if (num == 0)
+	{
+		str[i++] = '0';
+		str[i] = '\0';
+		return (str);
+	}
+
+	if (num < 0)
+	{
+	isNegative = 1;
+		num = -num;
+	}
+
+	while (num != 0)
+	{
+		r = num % 10;
+		str[i++] = (r > 9) ? (r - 10) + 'a' : r + '0';
+		num = num / 10;
+	}
+
+	if (isNegative == 1)
+		str[i++] = '-';
+	str[i] = '\0';
+	rev_string(str);
+	return (str);
+}
 /**
  *rev_string - reverse string
  *@s : string
