@@ -32,7 +32,7 @@ char *path(char *cmd)
 			_strcpy(new_cmd, full[x]);
 			_strcat(new_cmd, "/");
 			_strcat(new_cmd, cmd);
-			if (stat(new_cmd, &st) == 0)
+			if ((stat(new_cmd, &st) == 0) && (access(new_cmd, F_OK | X_OK) == 0))
 			{
 				free(_path);
 				for (i = 0; i < len; i++)
