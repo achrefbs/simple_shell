@@ -20,6 +20,12 @@ char **split(char *line, char *div)
 	if (buffer == NULL)
 		return (NULL);
 	token = strtok(line, div);
+	if (token == NULL)
+	{
+		free(buffer);
+		return (NULL);
+	}
+	
 	while (token)
 	{
 		len = _strlen(token);

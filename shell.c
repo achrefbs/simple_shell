@@ -24,9 +24,10 @@ int main(void)
 			continue;
 		}
 		str = split(line, div);
+		free(line);
 		if (str == NULL)
 		continue;
-		free(line);
+		
 		if ((_strcmp(str[0], "env") == 0))
 			p_env();
 		if ((_strcmp(str[0], "exit") == 0))

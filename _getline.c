@@ -7,8 +7,7 @@ char *_getline()
 {
 	int i, buffsize = 1024,rd;
 	char c = 0;
-	static char *buff;
-	buff = malloc(sizeof(char) * buffsize);
+	char *buff = malloc(sizeof(char) * buffsize);
 
 	if (buff == NULL)
 	{
@@ -25,7 +24,7 @@ char *_getline()
 		}
 		
 		buff[i] = c;
-		if (buff[0] == '\n' || buff[0] == EOF)
+		if (buff[0] == '\n')
 		{
 			return (NULL);
 		}
@@ -40,11 +39,11 @@ char *_getline()
 		}
 	}
 	buff[i] = '\0';
-	if (!strtok(buff," ​\t\r\n\a\v​:"))
+	/*if (!strtok(buff," ​\t\r\n\a\v​:"))
 	{
 		free(buff);
 		return(NULL);
-	}
+	}*/
 
 	return (buff);
 }
