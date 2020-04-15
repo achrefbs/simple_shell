@@ -13,6 +13,7 @@
 #include <signal.h>
 
 extern char **environ;
+void sig(int signal);
 void *_calloc(unsigned int size);
 void function();
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);

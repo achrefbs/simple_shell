@@ -5,7 +5,7 @@
 */
 char *_getline()
 {
-	int i, buffsize = 1024;
+	int i, buffsize = 1024,rd;
 	char c = 0;
 	char *buff = malloc(sizeof(char) * buffsize);
 
@@ -16,7 +16,13 @@ char *_getline()
 	for (i = 0; c != EOF && c != '\n'; i++)
 	{
 		fflush(stdin);
-		read(STDIN_FILENO, &c, 1);
+		rd = read(STDIN_FILENO, &c, 1);
+		if (rd == 0)
+		{
+			free(buff);
+			exit(EXIT_SUCCESS);
+		}
+		
 		buff[i] = c;
 		if (buff[0] == '\n' || buff[0] == EOF)
 		{

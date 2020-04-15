@@ -8,7 +8,7 @@ int main(void)
 	char *line, *cmd = NULL, **str, *div = " ​\t\r\n\a\v​:";
 	int i, status = 1, count = 0;
 
-	signal(SIGINT, SIG_IGN);/*disable ctrl-C */
+	signal(SIGINT, sig);/*disable ctrl-C */
 	while (status)
 	{
 		count++;
