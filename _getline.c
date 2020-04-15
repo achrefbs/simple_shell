@@ -10,9 +10,7 @@ char *_getline()
 	char *buff = malloc(sizeof(char) * buffsize);
 
 	if (buff == NULL)
-	{
 		return (NULL);
-	}
 	for (i = 0; c != EOF && c != '\n'; i++)
 	{
 		fflush(stdin);
@@ -24,17 +22,13 @@ char *_getline()
 		}
 		buff[i] = c;
 		if (buff[0] == '\n')
-		{
 			return (NULL);
-		}
 		if (i >= buffsize)
 		{
 			buff = _realloc(buff, buffsize, buffsize + 1024);
 			buffsize += 1024;
 			if (buff == NULL)
-			{
 				return (NULL);
-			}
 		}
 	}
 	buff[i] = '\0';
