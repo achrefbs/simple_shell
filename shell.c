@@ -29,7 +29,10 @@ int main(void)
 		continue;
 		
 		if ((_strcmp(str[0], "env") == 0))
+		{
 			p_env();
+			continue;
+		}
 		if ((_strcmp(str[0], "exit") == 0))
 		{
 			for (i = 0; str[i] != NULL; i++)

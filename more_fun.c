@@ -6,7 +6,6 @@ void p_env(void)
 {
 	size_t i;
 	int len;
-
 	for (i = 0; environ[i] != NULL; i++)
 	{
 		len = _strlen(environ[i]);
