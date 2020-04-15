@@ -13,7 +13,7 @@ int main(void)
 	{
 		count++;
 		if (isatty(STDIN_FILENO))
-			prompet();
+			prompt();
 		fflush(stdin);
 		line = _getline();
 		if (!line)

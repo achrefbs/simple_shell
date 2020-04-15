@@ -64,8 +64,10 @@ free(str[i]);
 }
 free(str);
 }
-
-void prompet(void)
+/**
+ * prompt - display prompt
+ */
+void prompt(void)
 {
 	_putchar('$');
 	_putchar(' ');
