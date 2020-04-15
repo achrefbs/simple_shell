@@ -12,7 +12,6 @@ void p_env(void)
 		len = _strlen(environ[i]);
 		write(1, environ[i], len);
 		_putchar('\n');
-		/*printf("%s\n", environ[i]);*/
 	}
 }
 
