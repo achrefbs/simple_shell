@@ -33,4 +33,5 @@ void p_env(void);
 char *_strcat(char *dest, char *src);
 char *_getenv(char *path);
 char *_itoa(int num, char *str);
+void prompet(void);
 #endif

@@ -5,18 +5,15 @@
 */
 int main(void)
 {
-	char *line, *cmd = NULL, **str, *div = " ​\t\r\n\a\v​:", *err = NULL ,*err1;
-	int i, status = 1, count = 0,le,ex = 0;
+	char *line, *cmd = NULL, **str, *div = " ​\t\r\n\a\v​:", *err, *err1;
+	int status = 1, count = 0, le, ex = 0;
 
 	signal(SIGINT, sig);/*disable ctrl-C */
 	while (status)
 	{
 		count++;
 		if (isatty(STDIN_FILENO))
-		{
-		_putchar('$');
-		_putchar(' ');
-		}
+			prompet();
 		fflush(stdin);
 		line = _getline();
 		if (!line)

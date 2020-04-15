@@ -64,3 +64,9 @@ free(str[i]);
 }
 free(str);
 }
+
+void prompet(void)
+{
+	_putchar('$');
+	_putchar(' ');
+}
