@@ -6,7 +6,7 @@
 int main(void)
 {
 	char *line, *cmd = NULL, **str, *div = " ​\t\r\n\a\v​:", *err = NULL ,*err1;
-	int i, status = 1, count = 0,le;
+	int i, status = 1, count = 0,le,ex = 0;
 
 	signal(SIGINT, sig);/*disable ctrl-C */
 	while (status)
@@ -40,12 +40,17 @@ int main(void)
 		}
 		if ((_strcmp(str[0], "exit") == 0))
 		{
+			if (str[1] != NULL)
+			{
+				ex = _atoi(str[1]);
+			}
+			
 			for (i = 0; str[i] != NULL; i++)
 			{
 				free(str[i]);
 			}
 			free(str);
-			exit(0);
+			exit(ex);
 		}
 		cmd = path(str[0]);
 		status = _exec(cmd, str);

@@ -13,6 +13,7 @@
 #include <signal.h>
 
 extern char **environ;
+int _atoi(char *s);
 void sig(int signal);
 void rev_string(char *s);
 void *_calloc(unsigned int size);
