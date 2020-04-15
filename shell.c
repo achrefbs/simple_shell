@@ -11,9 +11,11 @@ int main(void)
 	signal(SIGINT, SIG_IGN);/*disable ctrl-C */
 	while (status)
 	{
-
+		if (isatty(STDIN_FILENO))
+		{
 		_putchar('$');
 		_putchar(' ');
+		}
 		fflush(stdin);
 		line = _getline();	
 		str = split(line, div);
