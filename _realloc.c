@@ -1,4 +1,4 @@
-#include <stdlib.h>
+#include "shell.h"
 char *_memcpy(char *dest, char *src, unsigned int n);
 /**
  **_realloc -  a function that reallocates a memory block using malloc and free
@@ -44,4 +44,19 @@ char *_memcpy(char *dest, char *src, unsigned int n)
 		dest[i] = src[i];
 	}
 	return (dest);
+}
+
+void _perror(int count)
+{
+	char *err, *err1;
+	int le;
+	le = int_len(count);
+	err1 = _calloc(le + 1);
+	err1 = _itoa(count,err1);
+	err = _calloc(le + 11);
+	_strcat(err,"./shell: ");
+	_strcat(err,err1);
+	perror(err);
+	free(err);
+	free(err1);
 }

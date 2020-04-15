@@ -5,10 +5,10 @@
 */
 int main(void)
 {
-	char *line, *cmd = NULL, **str, *div = " ​\t\r\n\a\v​:", *err, *err1;
-	int status = 1, count = 0, le, ex = 0;
+	char *line, *cmd = NULL, **str, *div = " ​\t\r\n\a\v​:";
+	int status = 1, count = 0, ex = 0;
 
-	signal(SIGINT, sig);/*disable ctrl-C */
+	signal(SIGINT, sig);
 	while (status)
 	{
 		count++;
@@ -38,17 +38,7 @@ int main(void)
 		cmd = path(str[0]);
 		status = _exec(cmd, str);
 		if (status == -1)
-		{
-			le = int_len(count);
-			err1 = _calloc(le + 1);
-			err1 = _itoa(count,err1);
-			err = _calloc(le + 11);
-			_strcat(err,"./shell: ");
-			_strcat(err,err1);
-			perror(err);
-			free(err);
-			free(err1);
-		}
+			_perror(count);
 		free_array(str);
 		free(cmd);
 		if (!isatty(STDIN_FILENO))

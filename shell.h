@@ -14,6 +14,7 @@
 
 extern char **environ;
 int _atoi(char *s);
+void _perror(int count);
 void free_array(char **str);
 void sig(int signal);
 void rev_string(char *s);
