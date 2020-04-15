@@ -38,5 +38,13 @@ char *_getline()
 		}
 	}
 	buff[i] = '\0';
+	for (i = 0; buff[i] != '\0'; i++)
+	{
+		if (buff[i] == '#')
+		{
+			buff[i] = '\0';
+			break;
+		}
+	}
 	return (buff);
 }
