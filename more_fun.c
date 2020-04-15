@@ -50,4 +50,17 @@ int int_len(int n)
 	}
 	return (len);
 }
+/**
+ * free_array - frees an array
+ * @str : double pointer
+ */
+void free_array(char **str)
+{
+	int i;
 
+for (i = 0; str[i] != NULL; i++)
+{
+free(str[i]);
+}
+free(str);
+}
