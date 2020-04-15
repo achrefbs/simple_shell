@@ -20,9 +20,9 @@ int main(void)
 		if (str == NULL)
 		continue;
 		free(line);
-		if ((strcmp(str[0], "env") == 0))
+		if ((_strcmp(str[0], "env") == 0))
 			p_env();
-		if ((strcmp(str[0], "exit") == 0))
+		if ((_strcmp(str[0], "exit") == 0))
 		{
 			for (i = 0; str[i] != NULL; i++)
 			{
@@ -33,6 +33,11 @@ int main(void)
 		}
 		cmd = path(str[0]);
 		status = _exec(cmd, str);
+		if (status == -1)
+		{
+			perror("./shell");
+		}
+		
 		/**free**/
 		for (i = 0; str[i] != NULL; i++)
 		{
